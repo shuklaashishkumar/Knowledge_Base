@@ -10,8 +10,8 @@ FOLDERS=(
   "store"
   "config"
   "prompts"
-  "store/vector_db"
-  "store/sql_db"
+  "store/vector_store"
+  "store/sqlite_db"
   "logs"
   "notebooks"
   "src/$PACKAGE_NAME/models"
@@ -59,7 +59,7 @@ A brief description of your Python project.
 ├── data/                     # Input datasets
 ├── store/      # Persisted stores 
 ├── store/vector_db      # Persisted stores vector DB
-├── store/sql_db      # Persisted stores sql DB
+├── store/sqlite_db      # Persisted stores sql DB
 ├── prompts/                  # Prompt templates for LLMs
 ├── notebooks/                # python notebooks 
 ├── logs/                     # Logs or outputs

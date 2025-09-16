@@ -83,7 +83,7 @@ def main() -> None:
 
     logger.info("Starting the app...")
     logger.debug("Inside main()") 
-    #index_rag()
+    index_rag()
     #clear
     retriever_rag()
     generation_rag()
