@@ -1,0 +1,10 @@
+# Not in use for now
+RecursiveCharacterTextSplitter:
+  chunk_size: 1000
+  chunk_overlap: 200
+  separators: '\n\n'  '\n'  ' ' ''
+
+TextSplitter:
+  chunk_size: 1000
+  chunk_overlap: 200
+  separator: '\n\n'  '\n'  ' ' ''

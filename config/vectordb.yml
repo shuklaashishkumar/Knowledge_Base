@@ -1,0 +1,13 @@
+# Not in use for now
+chroma:
+  collectionname: knowledge
+  persistpath: ./store/vector_store/
+
+pinecone:
+  collectionname: chromadb
+  persistpath: ./store/vector_store/
+
+fiass:
+  collectionname: chromadb
+  persistpath: ./store/vector_store/
+

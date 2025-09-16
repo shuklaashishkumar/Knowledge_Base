@@ -1,0 +1,115 @@
+#1
+project:
+  name: knowledge-base
+  version: 1.0
+#2
+
+logging:
+  #level can have one the values below
+  # DEBUG, ERROR, INFO
+  level: DEBUG
+# this is the default log file path 
+  path: logs/app.log
+
+#3
+splitter:
+  name: RecursiveCharacterTextSplitter
+  chunk_size: 1000
+  chunk_overlap: 200
+  separators: ["\n\n" , "\n" , " " , ""]
+  source: data/
+  glob: "**/*.txt"
+
+#4
+SQLRecordManager:
+# for now only sqlite is supported as SQLRecordManager
+  type: sqlite
+  namespace: knowledgebase
+  url: sqlite:///store//sqlite_db//record_manager.db
+  source_id_key: source
+  clean_up: incremental
+
+#5
+# Vector DB type can be one of the values below
+# "chromadb", "faiss", "weaviate"
+vectordb:
+  type: chromadb
+  collectionname: knowledgebase
+  persistpath: ./store/vector_store/
+
+
+#6
+# embedding_engine name can be one of the values below
+#vertex, HuggingFace, ollama, ollama-mistral, ollama-qwen 
+embedding_engine:
+  name: vertex
+
+#embedding_engine 1 
+vertex:
+  model: text-embedding-005
+
+#embedding_engine 2
+ollama:
+  model: text-embedding-005
+  base_url: http://34.57.68.220:11434
+
+#embedding_engine 3
+ollama-mistral:
+  model: text-embedding-005
+  base_url: http://34.57.68.220:11434
+
+#embedding_engine 4
+ollama-qwen:
+  model: text-embedding-005
+  base_url: http://34.57.68.220:11434
+
+#embedding_engine 5
+HuggingFace:
+  embedding_model: text-embedding-005
+
+# 7
+#possible values
+#llm name can be one of the values below
+# google_vertexai, ollama, ollama-mistral, ollama-qwen3,  huggingface
+
+llm:
+  name: google_vertexai
+
+#llm 1
+google_vertexai: 
+  model: gemini-2.5-flash-lite 
+  model_provider: google_vertexai
+  retriever_k: 3 
+  retriever_score_threshold: 0.1 
+
+#llm 2
+ollama:
+    model: llama3.1:8b
+    model_provider: ollama
+    base_url: http://34.57.68.220:11434
+    retriever_k: 3 
+    retriever_score_threshold: 0.1 
+
+#llm 3  
+ollama-mistral:
+    model: mistral:latest
+    model_provider: ollama
+    base_url: http://34.57.68.220:11434
+    retriever_k: 3 
+    retriever_score_threshold: 0.1 
+#llm 4
+ollama-qwen3:
+    model: qwen3:latest 
+    model_provider: ollama       
+    base_url: http://34.57.68.220:11434  
+    retriever_k: 3 
+    retriever_score_threshold: 0.1 
+#llm 5
+huggingface:
+    model: meta-llama/Meta-Llama-3-8B-Instruct
+    model_provider: huggingface
+    retriever_k: 3 
+    retriever_score_threshold: 0.1 
+
+
+

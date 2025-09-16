@@ -1,0 +1,17 @@
+#not in use for now
+vertexai:
+  id: 1
+  name: vertexai
+
+openai:
+  id: 2
+  name: openai
+
+HuggingFace:
+  id: 3
+  name: HuggingFace
+  embedding_engine_name: Literal["vertex","openai", "huggingface"] = field(default="vertex")
+  embedding_engine_model: str = field(default="text-embedding-005")
+
+ 
+    
